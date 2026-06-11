@@ -1,10 +1,11 @@
+cat > entrypoint.sh <<EOF
 #!/bin/sh
-set -e
 
-# Ibutang ang port sa config
-sed -i "s/\${PORT:-8080}/$PORT/g" /etc/xray.json
-sed -i "s/\${PORT:-8080}/$PORT/g" /usr/local/openresty/nginx/conf/nginx.conf
+/usr/local/bin/xray run -c /etc/xray.json &
 
-# Sugdi ang serbisyo
-openresty -g 'daemon off;' &
-exec xray run -c /etc/xray.json
+sleep 3
+
+exec /usr/local/openresty/bin/openresty -g 'daemon off;'
+EOF
+
+chmod +x entrypoint.sh
