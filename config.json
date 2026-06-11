@@ -1,21 +1,13 @@
-
-cat > config.json <<EOF
 {
   "log": {
     "loglevel": "warning"
   },
-
   "inbounds": [
-
     {
       "tag": "trojan-ws",
-
       "port": 10001,
-
       "listen": "127.0.0.1",
-
       "protocol": "trojan",
-
       "settings": {
         "clients": [
           {
@@ -23,31 +15,22 @@ cat > config.json <<EOF
           }
         ]
       },
-
       "sniffing": {
         "enabled": true,
         "metadataOnly": false
       },
-
       "streamSettings": {
         "network": "ws",
-
         "wsSettings": {
           "path": "/jonathan-docker?ed=2180"
         }
       }
-    },
-    
-   ],
-
+    }
+  ],
   "outbounds": [
-
     {
       "protocol": "freedom",
-
       "tag": "direct"
     }
-
   ]
 }
-EOF
