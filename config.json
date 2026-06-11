@@ -15,14 +15,10 @@
           }
         ]
       },
-      "sniffing": {
-        "enabled": true,
-        "metadataOnly": false
-      },
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/jonathan-docker?ed=2180"
+          "path": "/jonathan-docker"
         }
       }
     }
